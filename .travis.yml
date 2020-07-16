@@ -1,0 +1,11 @@
+language: generic
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t vatsalpedhadiya/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true vatsalpedhadiya/docker-react npm run test
+
